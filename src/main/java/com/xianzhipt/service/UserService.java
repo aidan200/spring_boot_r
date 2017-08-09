@@ -51,7 +51,7 @@ public class UserService {
                     predicates.add(criteriaBuilder.equal(root.get("name"),map.get("name")));
                 }
                 if(null != map.get("pwd")){
-                    predicates.add(criteriaBuilder.equal(root.get("password"), map.get("pwd")));
+                    predicates.add(criteriaBuilder.like(root.get("password"), "%"+map.get("pwd")+"%"));
                 }
                 criteriaQuery.where(predicates.toArray(new Predicate[predicates.size()]));
                 return null;
